@@ -13,5 +13,17 @@ namespace HelloWorld_UnitTest
             Assert.True(result,"Value should not be equal to 1");
 
         }
+
+        [Fact]
+        public void CheckAddFunction()
+        {
+            functions func = new functions();
+            int y = func.Add(3, 2);
+            bool result = false;
+            if( y == 5 ) result = true;
+
+            Assert.True(result, "value should be equal to 5");
+
+        }
     }
 }
