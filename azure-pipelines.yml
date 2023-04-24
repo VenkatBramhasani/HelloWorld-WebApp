@@ -35,3 +35,7 @@ steps:
     projects: '**/HelloWorld-UnitTest.csproj'
     publishTestResults: true
     arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
+
+- task: PublishCodeCoverageResults@2
+  inputs:
+   summaryFileLocation: '$(Build.SourceDirectory)/**/MyCoverage/Coverage.cebertura.xml'
