@@ -50,5 +50,5 @@ steps:
 
 - task: PublishCodeCoverageResults@2
   inputs:
-    summaryFileLocation: '$(Build.SourceDirectory)/**/MyCoverage/Coverage.cebertura.xml'
+    summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
 
