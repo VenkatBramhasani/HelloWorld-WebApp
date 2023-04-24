@@ -15,12 +15,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
-
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -38,10 +32,8 @@ steps:
   inputs:
     command: 'test'
     projects: '**/HelloWorld-UnitTest.csproj'
-    publishTestResults: true
     arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
+    publishTestResults: true
 
-- task: PublishCodeCoverageResults@2
-  inputs:
-    summaryFileLocation: '$(Build.SourceDirectory)/**/MyCoverage/Coverage.cbertura.xml'
+
     
