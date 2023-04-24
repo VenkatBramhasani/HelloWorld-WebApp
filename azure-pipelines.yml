@@ -28,7 +28,6 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
     
-- 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
@@ -41,6 +40,13 @@ steps:
     projects: '**/HelloWorld-UnitTest.csproj'
     publishTestResults: true
     arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: custom
+    custom: tool
+    arguments: install --tool-path . dotnet-reportgenerator-globaltool
+  displayName: Install ReportGenerator tool
 
 - task: PublishCodeCoverageResults@2
   inputs:
