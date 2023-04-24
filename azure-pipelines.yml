@@ -29,6 +29,11 @@ steps:
     configuration: '$(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+    
+- task: DotNetCoreCLI@2
   name: RunUnittest
   inputs:
     command: 'test'
@@ -37,7 +42,6 @@ steps:
     arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
 
 - task: PublishCodeCoverageResults@2
-  name: PublishCodeCoverageResults
   inputs:
-    codeCoverageTool: Cobertura
-    summaryFileLocation: '$(Build.SourceDirectory)/**/MyCoverage/Covergae.cebertura.xml'
+    summaryFileLocation: '$(Build.SourceDirectory)/**/MyCoverage/Coverage.cbertura.xml'
+    
