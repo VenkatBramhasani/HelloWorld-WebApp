@@ -7,4 +7,8 @@
     <RootNamespace>HelloWorld_WebApp</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HelloWorld-UnitTest\HelloWorld-UnitTest.csproj" />
+  </ItemGroup>
+
 </Project>
