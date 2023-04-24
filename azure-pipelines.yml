@@ -33,4 +33,6 @@ steps:
   inputs:
     command: 'test'
     projects: '**/HelloWorld-UnitTest.csproj'
-    configuration: '$(buildConfiguration)'
+    publishTestResults: true
+    arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
+
