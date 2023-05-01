@@ -18,14 +18,14 @@ variables:
 steps:
 - task: NuGetToolInstaller@1
 - task: Cache@2
-  displayName: Cache
   inputs:
-    key: 'nuget | "$(Agent.OS)" | **/packages.lock.json,!**/bin/**,!**/obj/**'
+    key: 'nuget | "$(Agent.OS)" | PipelineCaching/packages.lock.json'
     restoreKeys: |
        nuget | "$(Agent.OS)"
        nuget
-    path: '$(NUGET_PACKAGES)'
-    cacheHitVar: 'CACHE_RESTORED'
+    path: $(NUGET_PACKAGES)
+    cacheHitVar: CACHE_RESTORED
+  displayName: Cache NuGet packages
 
 - task: NuGetCommand@2
   inputs:
