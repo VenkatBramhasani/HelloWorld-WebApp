@@ -19,7 +19,7 @@ steps:
 - task: NuGetToolInstaller@1
 - task: Cache@2
   inputs:
-    key: 'nuget | "$(Agent.OS)" | PipelineCaching/packages.lock.json'
+    key: 'nuget | "$(Agent.OS)" | ${{ parameters.WORKING_DIR }}/package-lock.json'
     restoreKeys: |
        nuget | "$(Agent.OS)"
        nuget
