@@ -14,7 +14,7 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   NUGET_PACKAGES: $(Pipeline.Workspace)/.nuget/packages
-  CACHE_RESTORED: 'false'
+  CACHE_RESTORED: 'true'
 
 steps:
 - task: NuGetToolInstaller@1
