@@ -10,5 +10,8 @@
   <ItemGroup>
     <ProjectReference Include="..\HelloWorld-UnitTest\HelloWorld-UnitTest.csproj" />
   </ItemGroup>
+  <PropertyGroup>
+		<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
 
 </Project>
